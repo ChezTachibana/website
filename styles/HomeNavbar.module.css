@@ -1,0 +1,10 @@
+.navmenu > :global(.navbar-item) {
+  display: flex !important;
+  align-items: center;
+}
+
+.navmenu figure > img {
+  width: 2rem;
+  height: 2rem;
+  max-height: 2rem !important;
+}

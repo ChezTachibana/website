@@ -1,0 +1,22 @@
+.image-card {
+  transform: rotate(-3deg);
+  margin-top: 6rem;
+  border-radius: 6px;
+  box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%),
+    0 0px 0 1px rgb(10 10 10 / 2%);
+  display: inline-block;
+  background: #fff;
+}
+.image-card > .image {
+  line-height: 0;
+}
+.image-card > .image > :global(img) {
+  border-radius: 6px 6px 0 0;
+  width: 60vw;
+  min-width: 200px;
+  max-width: 320px;
+}
+.image-card > .caption {
+  padding: 0.3rem 0.3rem 0.6rem 0.3rem;
+  text-align: center;
+}

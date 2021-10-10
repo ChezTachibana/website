@@ -1,0 +1,7 @@
+.breadcrumb > ul {
+  align-items: center;
+}
+
+.breadcrumb:global(.right) > ul {
+  justify-content: flex-end;
+}

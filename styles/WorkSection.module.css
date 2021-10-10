@@ -1,0 +1,4 @@
+.table :global(th),
+.table :global(td) {
+  white-space: nowrap;
+}

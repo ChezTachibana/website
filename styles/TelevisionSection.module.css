@@ -1,0 +1,16 @@
+.table :global(th),
+.table :global(td) {
+  white-space: nowrap;
+}
+.table :global(.program-date) {
+  min-width: 11rem;
+}
+.table :global(.program-title) {
+  white-space: initial;
+}
+@media screen and (max-width: 640px) {
+  .table :global(.program-date) {
+    min-width: initial;
+    white-space: initial;
+  }
+}

@@ -1,0 +1,28 @@
+.icon {
+  height: 1.3rem;
+  margin-right: 0.5rem;
+  fill: #fff;
+}
+
+.buttons :global(.column) {
+  padding-bottom: 0;
+}
+
+.buttons :global(a.button) {
+  margin-bottom: 0 !important;
+  white-space: normal;
+  display: block;
+  height: auto;
+  min-height: 2.5em;
+}
+
+.buttons :global(a.button span) {
+  display: inline-block;
+}
+
+@media screen and (min-width: 24rem) {
+  .buttons :global(a.button) {
+    display: inline-block;
+    min-width: 19rem;
+  }
+}

@@ -1,0 +1,7 @@
+.columns,
+.element {
+  margin-top: 1rem;
+}
+.columns :global(.column) {
+  padding-top: 0 !important;
+}

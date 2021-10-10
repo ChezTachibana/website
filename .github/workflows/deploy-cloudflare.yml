@@ -1,0 +1,24 @@
+name: Publish to Cloudflare Pages
+on:
+  push:
+    branches:
+      - main
+  repository_dispatch:
+    types: [gas_trigger]
+jobs:
+  deploy:
+    name: cloudflare-pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger CF deployments
+        run: |
+          curl "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/pages/projects/$CF_PROJECT_NAME/deployments" \
+            -X POST \
+            -s \
+            --header "X-Auth-Email: $CF_EMAIL" \
+            --header "X-Auth-Key: $CF_API_KEY"
+        env:
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_PROJECT_NAME: ${{ secrets.CF_PROJECT_NAME }}
+          CF_EMAIL: ${{ secrets.CF_EMAIL }}
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}

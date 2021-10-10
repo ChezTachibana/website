@@ -1,0 +1,32 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next export",
+    "export:basic": "node -e \"require('fs').copyFileSync('deploy/.htaccess', 'out/.htaccess')\"",
+    "export:rename": "node -e \"require('fs').renameSync('out', 'chez')\"",
+    "prettify": "prettier -w pages/**/*.tsx",
+    "start": "next start"
+  },
+  "dependencies": {
+    "bulma": "^0.9.2",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-svgo": "^9.0.0",
+    "next": "^10.2.3",
+    "next-optimized-images": "^2.6.2",
+    "next-seo": "^4.24.0",
+    "react": "17.0.2",
+    "react-bulma-components": "^4.0.6",
+    "react-dom": "17.0.2",
+    "sass": "1.32.0"
+  },
+  "devDependencies": {
+    "@types/react": "17.0.9",
+    "prettier": "^2.3.1",
+    "typescript": "4.3.2"
+  }
+}
