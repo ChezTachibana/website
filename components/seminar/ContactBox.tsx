@@ -12,16 +12,29 @@ export const ContactBox: FC = () => {
     <Box id="contact">
       <Heading>{lang == "ja" ? "お問い合わせ" : "Contact"}</Heading>
       {lang == "ja" ? (
-        <Paragraph>
-          このWebサイトについてのお問い合わせは{" "}
-          <a href="mailto:tsemi@digitalmuseum.jp">tsemi@digitalmuseum.jp</a>{" "}
-          までお願いいたします。
-        </Paragraph>
+        <>
+          <Paragraph>
+            このWebサイトについてのお問い合わせは{" "}
+            <a href="mailto:tsemi@digitalmuseum.jp">tsemi@digitalmuseum.jp</a>{" "}
+            までお願いいたします。
+          </Paragraph>
+          <Paragraph>
+            ソースコードは{" "}
+            <a href="https://github.com/ChezTachibana/website">GitHub</a>{" "}
+            で公開しています。
+          </Paragraph>
+        </>
       ) : (
-        <Paragraph>
-          If you have any questions about this website, please contact{" "}
-          <a href="mailto:tsemi@digitalmuseum.jp">tsemi@digitalmuseum.jp</a>.
-        </Paragraph>
+        <>
+          <Paragraph>
+            If you have any questions about this website, please contact{" "}
+            <a href="mailto:tsemi@digitalmuseum.jp">tsemi@digitalmuseum.jp</a>.
+          </Paragraph>
+          <Paragraph>
+            Source code of this website is available at{" "}
+            <a href="https://github.com/ChezTachibana/website">GitHub</a>.
+          </Paragraph>
+        </>
       )}
       {/* <Heading size={5} mt={5} id="credit">
               クレジット
