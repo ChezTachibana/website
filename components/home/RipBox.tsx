@@ -47,7 +47,7 @@ export const RipBox: FC = () => {
           <Paragraph>
             生前に親交のあった方々や、立花隆ゼミの元学生たちからのお別れのメッセージを掲載しています。
           </Paragraph>
-          <Columns mt={1} mb={3} gap={0 as any} className={styles.buttons}>
+          <Columns mt={1} mb={1} gap={0 as any} className={styles.buttons}>
             <Columns.Column>
               <Element textAlign="center" p={3} backgroundColor="white-ter">
                 <LinkButton href="/message">
@@ -67,14 +67,6 @@ export const RipBox: FC = () => {
               </Element>
             </Columns.Column>
           </Columns>
-          <Paragraph>
-            立花先生へのお別れのメッセージをお受けしております。受付フォームからご記入ください。
-          </Paragraph>
-          <RightAlignedColumns>
-            <Button renderAs="a" href="https://forms.gle/GTUF6dBAecHCnWCZ7">
-              メッセージ受付フォーム
-            </Button>
-          </RightAlignedColumns>
         </>
       )}
     </Box>
