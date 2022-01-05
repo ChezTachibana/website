@@ -26,6 +26,7 @@ const tvHistory: TvEntry[] = [
     time: "15:05～15:54",
     category: "NHKスペシャル",
     title: "立花隆のシベリア鎮魂歌～抑留画家・香月泰男～",
+    link: "https://www.nhk.jp/p/special/ts/2NY2QQLPM3/episode/te/XL641WL9P9/",
     originalDate: "1995",
   },
   {
