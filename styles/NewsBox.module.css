@@ -23,3 +23,15 @@ table td.date {
     font-size: 0.875em;
   }
 }
+
+.bookshelf {
+  border: 1px solid #dbdbdb;
+  border-width: 1px 0;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 0;
+}
+
+.post-bookshelf {
+  font-size: 0.8rem !important;
+}

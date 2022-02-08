@@ -1,5 +1,12 @@
 import { FC } from "react";
-import { Box, Element, Heading, Table, Tag } from "react-bulma-components";
+import {
+  Box,
+  Element,
+  Heading,
+  Image,
+  Table,
+  Tag,
+} from "react-bulma-components";
 
 import styles from "../../styles/NewsBox.module.css";
 import { Paragraph } from "../Paragraph";
@@ -92,7 +99,15 @@ const tvHistory: TvEntry[] = [
   },
 ];
 
-const tvPlans: TvEntry[] = [];
+const tvPlans: TvEntry[] = [
+  {
+    date: "2022年2月8日（火）",
+    time: "21:00～22:00",
+    category: "NHK アナザーストーリーズ 運命の分岐点",
+    title: "立花隆vs.田中角栄",
+    link: "https://www.nhk.jp/p/anotherstories/ts/VWRZ1WWNYP/episode/te/GJX95K48QN/",
+  },
+];
 
 const publicationHistory: PublicationEntry[] = [
   {
@@ -147,7 +162,7 @@ export const NewsBox: FC = () => (
     <Heading size={5} display="flex" alignItems="center">
       <Element pr={2}>最新情報</Element>
       <Tag color="primary" rounded>
-        2022/1/5 更新
+        2022/2/8 更新
       </Tag>
     </Heading>
     {publicationPlans.length > 0 && (
@@ -212,6 +227,21 @@ export const NewsBox: FC = () => (
         </Table>
       </>
     )}
+    <Paragraph>
+      2022年4月11日（月）～4月15日（金）に、
+      <a href="https://www.bunshun.co.jp/gallery/">文春ギャラリー</a>
+      にて「追悼　立花隆の書棚展」
+      が開催されます。詳細は以下の画像をクリックして
+      <a href="/bookshelf.pdf">チラシ（PDF）</a>をご覧ください。
+    </Paragraph>
+    <Element mt={2} mb={4} className={styles.bookshelf}>
+      <a href="/bookshelf.pdf">
+        <Image src="/bookshelf.jpg" fullwidth />
+      </a>
+      <Element mt={2} textColor="grey" className={styles["post-bookshelf"]}>
+        撮影：薈田純一（『立花隆の書棚』）、協力：講談社・中央公論新社・文藝春秋
+      </Element>
+    </Element>
     <Paragraph>以下の雑誌と書籍が刊行されました。</Paragraph>
     <Table size="fullwidth" mt={3} striped hoverable>
       <tbody>
