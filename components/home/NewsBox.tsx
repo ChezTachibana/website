@@ -97,15 +97,21 @@ const tvHistory: TvEntry[] = [
     title: "知の巨人、最後の言葉～半藤一利・立花隆～",
     link: "https://www.nhk.jp/p/mimisuma/ts/LX5XQ8M1M6/episode/te/7N6KKJ55QJ/",
   },
-];
-
-const tvPlans: TvEntry[] = [
   {
     date: "2022年2月8日（火）",
     time: "21:00～22:00",
     category: "NHK アナザーストーリーズ 運命の分岐点",
     title: "立花隆vs.田中角栄",
     link: "https://www.nhk.jp/p/anotherstories/ts/VWRZ1WWNYP/episode/te/GJX95K48QN/",
+  },
+];
+
+const tvPlans: TvEntry[] = [
+  {
+    date: "2022年4月30日（土）",
+    time: "22:00～（予定）",
+    category: "NHK スペシャル 立花 隆 最期の旅",
+    title: "～知の巨人は何を遺したのか～（仮）",
   },
 ];
 
@@ -162,7 +168,7 @@ export const NewsBox: FC = () => (
     <Heading size={5} display="flex" alignItems="center">
       <Element pr={2}>最新情報</Element>
       <Tag color="primary" rounded>
-        2022/2/8 更新
+        2022/4/20 更新
       </Tag>
     </Heading>
     {publicationPlans.length > 0 && (
@@ -191,8 +197,11 @@ export const NewsBox: FC = () => (
     )}
     {tvPlans.length > 0 && (
       <>
-        <Paragraph>以下の日程で、関連番組が放映予定です。</Paragraph>
-        <Table size="fullwidth" mt={3} striped hoverable>
+        <Paragraph>
+          以下の日程で、関連番組が放映予定です。詳細は画像をクリックして
+          <a href="/nhk-memorial.pdf">ポスター（PDF）</a>をご覧ください。
+        </Paragraph>
+        <Table size="fullwidth" mt={3} mb={0} striped hoverable>
           <tbody>
             {tvPlans.map(
               ({ date, time, category, title, link, originalDate }, i) => (
@@ -227,11 +236,19 @@ export const NewsBox: FC = () => (
         </Table>
       </>
     )}
+    <Element mb={4} className={styles["nhk-memorial"]}>
+      <a href="/nhk-memorial.pdf">
+        <Image src="/nhk-memorial.jpg" fullwidth />
+      </a>
+      {/* <Element mt={2} textColor="grey" className={styles["post-bookshelf"]}>
+        撮影：薈田純一（『立花隆の書棚』）、協力：講談社・中央公論新社・文藝春秋
+      </Element> */}
+    </Element>
     <Paragraph>
       2022年4月11日（月）～4月15日（金）に、
       <a href="https://www.bunshun.co.jp/gallery/">文春ギャラリー</a>
       にて「追悼　立花隆の書棚展」
-      が開催されます。詳細は以下の画像をクリックして
+      が開催されました。詳細は以下の画像をクリックして
       <a href="/bookshelf.pdf">チラシ（PDF）</a>をご覧ください。
     </Paragraph>
     <Element mt={2} mb={4} className={styles.bookshelf}>
