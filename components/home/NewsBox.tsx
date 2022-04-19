@@ -247,7 +247,7 @@ export const NewsBox: FC = () => {
                       （日本経済新聞）
                     </li>
                     <li>
-                      <a href="https://www.nikkei.com/article/DGXZQOUF120MO0S2A410C2000000/">
+                      <a href="https://www.sankei.com/article/20220411-B6LFABAXA5KUFGHFT3ELQSWMZY/">
                         立花隆さん蔵書５万冊譲渡　遺志で古書店に
                       </a>
                       （産経新聞）
