@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import {
   Box,
   Element,
@@ -9,6 +9,7 @@ import {
 } from "react-bulma-components";
 
 import styles from "../../styles/NewsBox.module.css";
+import { LastUpdateContext } from "../LastUpdateContext";
 import { Paragraph } from "../Paragraph";
 
 interface TvEntry {
@@ -163,163 +164,168 @@ const publicationHistory: PublicationEntry[] = [
 
 const publicationPlans: PublicationEntry[] = [];
 
-export const NewsBox: FC = () => (
-  <Box id="news" className={styles.tv}>
-    <Heading size={5} display="flex" alignItems="center">
-      <Element pr={2}>最新情報</Element>
-      <Tag color="primary" rounded>
-        2022/4/20 更新
-      </Tag>
-    </Heading>
-    {publicationPlans.length > 0 && (
-      <>
-        <Paragraph>以下の雑誌と書籍が刊行予定です。</Paragraph>
-        <Table size="fullwidth" mt={3} striped hoverable>
-          <tbody>
-            {publicationPlans.map(({ date, title, subtitle, link }, i) => (
-              <tr key={i}>
-                <td className={styles.date}>
-                  <p>
-                    <Element renderAs="span" display="inline-block">
-                      {date}
-                    </Element>
-                  </p>
-                </td>
-                <td>
-                  <p>{link ? <a href={link}>{title}</a> : title}</p>
-                  {subtitle && <p>{subtitle}</p>}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </Table>
-      </>
-    )}
-    {tvPlans.length > 0 && (
-      <>
-        <Paragraph>
-          以下の日程で、関連番組が放映予定です。詳細は画像をクリックして
-          <a href="/nhk-memorial.pdf">ポスター（PDF）</a>をご覧ください。
-        </Paragraph>
-        <Table size="fullwidth" mt={3} mb={0} striped hoverable>
-          <tbody>
-            {tvPlans.map(
-              ({ date, time, category, title, link, originalDate }, i) => (
+export const NewsBox: FC = () => {
+  const lastUpdate = useContext(LastUpdateContext);
+  return (
+    <Box id="news" className={styles.tv}>
+      <Heading size={5} display="flex" alignItems="center">
+        <Element pr={2}>最新情報</Element>
+        {lastUpdate && (
+          <Tag color="primary" rounded>
+            {lastUpdate}
+          </Tag>
+        )}
+      </Heading>
+      {publicationPlans.length > 0 && (
+        <>
+          <Paragraph>以下の書籍が刊行予定です。</Paragraph>
+          <Table size="fullwidth" mt={3} striped hoverable>
+            <tbody>
+              {publicationPlans.map(({ date, title, subtitle, link }, i) => (
                 <tr key={i}>
                   <td className={styles.date}>
                     <p>
                       <Element renderAs="span" display="inline-block">
                         {date}
                       </Element>
-                      <Element renderAs="span" display="inline-block">
-                        {time}
-                      </Element>
                     </p>
-                    {originalDate && (
-                      <Element renderAs="p" textColor="grey">
-                        初放送: {originalDate}年
-                      </Element>
-                    )}
                   </td>
                   <td>
-                    <Element>
-                      <small>{category}</small>
-                    </Element>
-                    <Element>
-                      {link ? <a href={link}>{title}</a> : title}
-                    </Element>
+                    <p>{link ? <a href={link}>{title}</a> : title}</p>
+                    {subtitle && <p>{subtitle}</p>}
                   </td>
                 </tr>
-              )
-            )}
-          </tbody>
-        </Table>
-      </>
-    )}
-    <Element mb={4} className={styles["nhk-memorial"]}>
-      <a href="/nhk-memorial.pdf">
-        <Image src="/nhk-memorial.jpg" fullwidth />
-      </a>
-      {/* <Element mt={2} textColor="grey" className={styles["post-bookshelf"]}>
+              ))}
+            </tbody>
+          </Table>
+        </>
+      )}
+      {tvPlans.length > 0 && (
+        <>
+          <Paragraph>
+            以下の日程で、関連番組が放映予定です。詳細は画像をクリックして
+            <a href="/nhk-memorial.pdf">ポスター（PDF）</a>をご覧ください。
+          </Paragraph>
+          <Table size="fullwidth" mt={3} mb={0} striped hoverable>
+            <tbody>
+              {tvPlans.map(
+                ({ date, time, category, title, link, originalDate }, i) => (
+                  <tr key={i}>
+                    <td className={styles.date}>
+                      <p>
+                        <Element renderAs="span" display="inline-block">
+                          {date}
+                        </Element>
+                        <Element renderAs="span" display="inline-block">
+                          {time}
+                        </Element>
+                      </p>
+                      {originalDate && (
+                        <Element renderAs="p" textColor="grey">
+                          初放送: {originalDate}年
+                        </Element>
+                      )}
+                    </td>
+                    <td>
+                      <Element>
+                        <small>{category}</small>
+                      </Element>
+                      <Element>
+                        {link ? <a href={link}>{title}</a> : title}
+                      </Element>
+                    </td>
+                  </tr>
+                )
+              )}
+            </tbody>
+          </Table>
+        </>
+      )}
+      <Element mb={4} className={styles["nhk-memorial"]}>
+        <a href="/nhk-memorial.pdf">
+          <Image src="/nhk-memorial.jpg" fullwidth />
+        </a>
+        {/* <Element mt={2} textColor="grey" className={styles["post-bookshelf"]}>
         撮影：薈田純一（『立花隆の書棚』）、協力：講談社・中央公論新社・文藝春秋
       </Element> */}
-    </Element>
-    <Paragraph>
-      2022年4月11日（月）～4月15日（金）に、
-      <a href="https://www.bunshun.co.jp/gallery/">文春ギャラリー</a>
-      にて「追悼　立花隆の書棚展」
-      が開催されました。詳細は以下の画像をクリックして
-      <a href="/bookshelf.pdf">チラシ（PDF）</a>をご覧ください。
-    </Paragraph>
-    <Element mt={2} mb={4} className={styles.bookshelf}>
-      <a href="/bookshelf.pdf">
-        <Image src="/bookshelf.jpg" fullwidth />
-      </a>
-      <Element mt={2} textColor="grey" className={styles["post-bookshelf"]}>
-        撮影：薈田純一（『立花隆の書棚』）、協力：講談社・中央公論新社・文藝春秋
       </Element>
-    </Element>
-    <Paragraph>以下の雑誌と書籍が刊行されました。</Paragraph>
-    <Table size="fullwidth" mt={3} striped hoverable>
-      <tbody>
-        {publicationHistory.map(({ date, title, subtitle, link }, i) => (
-          <tr key={i}>
-            <td className={styles.date}>
-              <p>
-                <Element renderAs="span" display="inline-block">
-                  {date}
-                </Element>
-              </p>
-            </td>
-            <td>
-              <p>{link ? <a href={link}>{title}</a> : title}</p>
-              {subtitle && <p>{subtitle}</p>}
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </Table>
-    <Paragraph>
-      また、以下の日程で、関連番組が放映されました。
-      <a href="https://www3.nhk.or.jp/news/html/20210623/k10013098951000.html">
-        NHK NEWS WEBのおくやみの記事
-      </a>
-      や、
-      <a href="https://www6.nhk.or.jp/nhkpr/post/original.html?i=29880">
-        関連番組をまとめたNHKオンラインの特設ページ
-      </a>
-      もご覧ください。
-    </Paragraph>
-    <Table size="fullwidth" mt={3} striped hoverable>
-      <tbody>
-        {tvHistory.map(
-          ({ date, time, category, title, link, originalDate }, i) => (
+      <Paragraph>
+        2022年4月11日（月）～4月15日（金）に、
+        <a href="https://www.bunshun.co.jp/gallery/">文春ギャラリー</a>
+        にて「追悼　立花隆の書棚展」
+        が開催されました。詳細は以下の画像をクリックして
+        <a href="/bookshelf.pdf">チラシ（PDF）</a>をご覧ください。
+      </Paragraph>
+      <Element mt={2} mb={4} className={styles.bookshelf}>
+        <a href="/bookshelf.pdf">
+          <Image src="/bookshelf.jpg" fullwidth />
+        </a>
+        <Element mt={2} textColor="grey" className={styles["post-bookshelf"]}>
+          撮影：薈田純一（『立花隆の書棚』）、協力：講談社・中央公論新社・文藝春秋
+        </Element>
+      </Element>
+      <Paragraph>以下の雑誌と書籍が刊行されました。</Paragraph>
+      <Table size="fullwidth" mt={3} striped hoverable>
+        <tbody>
+          {publicationHistory.map(({ date, title, subtitle, link }, i) => (
             <tr key={i}>
               <td className={styles.date}>
                 <p>
                   <Element renderAs="span" display="inline-block">
                     {date}
                   </Element>
-                  <Element renderAs="span" display="inline-block">
-                    {time}
-                  </Element>
                 </p>
-                {originalDate && (
-                  <Element renderAs="p" textColor="grey">
-                    初放送: {originalDate}年
-                  </Element>
-                )}
               </td>
               <td>
-                <Element>
-                  <small>{category}</small>
-                </Element>
-                <Element>{link ? <a href={link}>{title}</a> : title}</Element>
+                <p>{link ? <a href={link}>{title}</a> : title}</p>
+                {subtitle && <p>{subtitle}</p>}
               </td>
             </tr>
-          )
-        )}
-      </tbody>
-    </Table>
-  </Box>
-);
+          ))}
+        </tbody>
+      </Table>
+      <Paragraph>
+        また、以下の日程で、関連番組が放映されました。
+        <a href="https://www3.nhk.or.jp/news/html/20210623/k10013098951000.html">
+          NHK NEWS WEBのおくやみの記事
+        </a>
+        や、
+        <a href="https://www6.nhk.or.jp/nhkpr/post/original.html?i=29880">
+          関連番組をまとめたNHKオンラインの特設ページ
+        </a>
+        もご覧ください。
+      </Paragraph>
+      <Table size="fullwidth" mt={3} striped hoverable>
+        <tbody>
+          {tvHistory.map(
+            ({ date, time, category, title, link, originalDate }, i) => (
+              <tr key={i}>
+                <td className={styles.date}>
+                  <p>
+                    <Element renderAs="span" display="inline-block">
+                      {date}
+                    </Element>
+                    <Element renderAs="span" display="inline-block">
+                      {time}
+                    </Element>
+                  </p>
+                  {originalDate && (
+                    <Element renderAs="p" textColor="grey">
+                      初放送: {originalDate}年
+                    </Element>
+                  )}
+                </td>
+                <td>
+                  <Element>
+                    <small>{category}</small>
+                  </Element>
+                  <Element>{link ? <a href={link}>{title}</a> : title}</Element>
+                </td>
+              </tr>
+            )
+          )}
+        </tbody>
+      </Table>
+    </Box>
+  );
+};
