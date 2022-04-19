@@ -1,4 +1,4 @@
-import { FC, useContext, useEffect, useMemo, useState } from "react";
+import { FC, useContext, useEffect, useState } from "react";
 import { NextSeo } from "next-seo";
 import Head from "next/head";
 import Link from "next/link";
@@ -121,7 +121,7 @@ export const Layout: FC<IProps> = ({
               <Link href="/seminar">
                 <a>立花隆ゼミ</a>
               </Link>{" "}
-              2021（
+              2021-2022（
               <Link href="/privacy-policy">
                 <a>プライバシーポリシー</a>
               </Link>
@@ -132,7 +132,7 @@ export const Layout: FC<IProps> = ({
               <Link href="/en/seminar">
                 <a>Tachibana Seminar</a>
               </Link>{" "}
-              2021 (
+              2021-2022 (
               <Link href="/en/privacy-policy">
                 <a>Privacy Policy</a>
               </Link>
