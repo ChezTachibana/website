@@ -1,6 +1,7 @@
 import { FC, useContext } from "react";
 import {
   Box,
+  Button,
   Columns,
   Element,
   Heading,
@@ -12,6 +13,7 @@ import {
 import styles from "../../styles/NewsBox.module.css";
 import { LastUpdateContext } from "../LastUpdateContext";
 import { Paragraph } from "../Paragraph";
+import { DontDiscardContent } from "./DontDiscardContent";
 
 interface TvEntry {
   date: string;
@@ -106,9 +108,6 @@ const tvHistory: TvEntry[] = [
     title: "立花隆vs.田中角栄",
     link: "https://www.nhk.jp/p/anotherstories/ts/VWRZ1WWNYP/episode/te/GJX95K48QN/",
   },
-];
-
-const tvPlans: TvEntry[] = [
   {
     date: "2022年4月30日（土）",
     time: "22:00～（予定）",
@@ -116,6 +115,8 @@ const tvPlans: TvEntry[] = [
     title: "～知の巨人は何を遺したのか～（仮）",
   },
 ];
+
+const tvPlans: TvEntry[] = [];
 
 const publicationHistory: PublicationEntry[] = [
   {
@@ -161,9 +162,6 @@ const publicationHistory: PublicationEntry[] = [
     subtitle: "長崎が生んだ「知の巨人」追悼と鎮魂、そして人類",
     link: "https://www.e-bunken.com/shopdetail/000000000411",
   },
-];
-
-const publicationPlans: PublicationEntry[] = [
   {
     date: "2022年5月27日（金）",
     title: "インディオの聖像",
@@ -171,6 +169,8 @@ const publicationPlans: PublicationEntry[] = [
     link: "https://books.bunshun.jp/ud/book/num/9784163915470",
   },
 ];
+
+const publicationPlans: PublicationEntry[] = [];
 
 export const NewsBox: FC = () => {
   const lastUpdate = useContext(LastUpdateContext);
@@ -184,6 +184,7 @@ export const NewsBox: FC = () => {
           </Tag>
         )}
       </Heading>
+      <DontDiscardContent mb={5} />
       {tvPlans.length > 0 && (
         <>
           <Paragraph>
@@ -225,47 +226,48 @@ export const NewsBox: FC = () => {
           </Table>
         </>
       )}
-      <Element mb={4} className={styles["nhk-memorial"]}>
+      {/* <Element mb={4} className={styles["nhk-memorial"]}>
         <a href="/nhk-memorial.pdf">
           <Image src="/nhk-memorial.jpg" fullwidth />
         </a>
-      </Element>
-      <Columns>
-        <Columns.Column>
-          <Paragraph>
-            立花先生の蔵書および資料について、以下の記事が配信されました。
-          </Paragraph>
-          <Table size="fullwidth" mt={3} striped hoverable>
-            <tbody>
-              <tr>
-                <td>
-                  <ul>
-                    <li>
-                      <a href="https://www.nikkei.com/article/DGXZQOUF120MO0S2A410C2000000/">
-                        立花隆さんの蔵書5万冊、遺志で古書店に譲渡
-                      </a>
-                      （日本経済新聞）
-                    </li>
-                    <li>
-                      <a href="https://www.sankei.com/article/20220411-B6LFABAXA5KUFGHFT3ELQSWMZY/">
-                        立花隆さん蔵書５万冊譲渡　遺志で古書店に
-                      </a>
-                      （産経新聞）
-                    </li>
-                    <li>
-                      <a href="https://www.tokyo-np.co.jp/article/171064">
-                        立花隆さん資料１００箱、茨城へ　田中元首相関連ノートなど寄託
-                      </a>
-                      （東京新聞）
-                    </li>
-                  </ul>
-                </td>
-              </tr>
-            </tbody>
-          </Table>
-        </Columns.Column>
-        <Columns.Column>
-          {/* {publicationPlans.length > 0 && (<> */}
+      </Element> */}
+      {/* <Columns>
+        <Columns.Column> */}
+      <Paragraph>
+        立花先生の蔵書および資料について、以下の記事が配信されました。
+      </Paragraph>
+      <Table size="fullwidth" mt={3} striped hoverable>
+        <tbody>
+          <tr>
+            <td>
+              <ul>
+                <li>
+                  <a href="https://www.nikkei.com/article/DGXZQOUF120MO0S2A410C2000000/">
+                    立花隆さんの蔵書5万冊、遺志で古書店に譲渡
+                  </a>
+                  （日本経済新聞）
+                </li>
+                <li>
+                  <a href="https://www.sankei.com/article/20220411-B6LFABAXA5KUFGHFT3ELQSWMZY/">
+                    立花隆さん蔵書５万冊譲渡　遺志で古書店に
+                  </a>
+                  （産経新聞）
+                </li>
+                <li>
+                  <a href="https://www.tokyo-np.co.jp/article/171064">
+                    立花隆さん資料１００箱、茨城へ　田中元首相関連ノートなど寄託
+                  </a>
+                  （東京新聞）
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </Table>
+      {/* </Columns.Column>
+        <Columns.Column> */}
+      {publicationPlans.length > 0 && (
+        <>
           <Paragraph>以下の書籍が刊行予定です。</Paragraph>
           <Table size="fullwidth" mt={3} striped hoverable>
             <tbody>
@@ -286,9 +288,10 @@ export const NewsBox: FC = () => {
               ))}
             </tbody>
           </Table>
-          {/* </>)} */}
-        </Columns.Column>
-      </Columns>
+        </>
+      )}
+      {/* </Columns.Column>
+      </Columns>*/}
       <Paragraph>
         2022年4月11日（月）～4月15日（金）に、
         <a href="https://www.bunshun.co.jp/gallery/">文春ギャラリー</a>
