@@ -18,37 +18,34 @@ interface IProps {
   images: string[];
 }
 
-const Home: NextPage<IProps> = ({ images }) => {
-  const lastUpdate = "2022/11/17 更新";
-  return (
-    <LastUpdateContext.Provider value={lastUpdate}>
-      <ImagesContext.Provider value={images}>
-        <Layout>
-          <Container>
-            <LastUpdateBanner />
-            <Logo />
-            <Heading textAlign="center" size={4} mb={6}>
-              立花隆公式サイト
+const Home: NextPage<IProps> = ({ images }) => (
+  <LastUpdateContext.Provider value={"2022/12/25 更新"}>
+    <ImagesContext.Provider value={images}>
+      <Layout>
+        <Container>
+          <LastUpdateBanner />
+          <Logo />
+          <Heading textAlign="center" size={4} mb={6}>
+            立花隆公式サイト
+          </Heading>
+          <HomeNavbar />
+          <MessageBox />
+          <Box>
+            <Heading size={5} display="flex" alignItems="center">
+              <Element pr={2}>原稿や資料の廃棄について</Element>
+              <Tag color="primary" rounded>
+                2022/11/17 更新
+              </Tag>
             </Heading>
-            <HomeNavbar />
-            <MessageBox />
-            <Box>
-              <Heading size={5} display="flex" alignItems="center">
-                <Element pr={2}>原稿や資料の廃棄について</Element>
-                <Tag color="primary" rounded>
-                  {lastUpdate}
-                </Tag>
-              </Heading>
-              <DontDiscardContent />
-            </Box>
-            <RipBox />
-            <NewsBox />
-          </Container>
-        </Layout>
-      </ImagesContext.Provider>
-    </LastUpdateContext.Provider>
-  );
-};
+            <DontDiscardContent />
+          </Box>
+          <RipBox />
+          <NewsBox />
+        </Container>
+      </Layout>
+    </ImagesContext.Provider>
+  </LastUpdateContext.Provider>
+);
 
 export const getStaticProps: GetStaticProps<IProps> = async () => {
   try {

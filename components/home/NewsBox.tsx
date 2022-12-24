@@ -1,8 +1,6 @@
 import { FC, useContext } from "react";
 import {
   Box,
-  Button,
-  Columns,
   Element,
   Heading,
   Image,
@@ -116,7 +114,20 @@ const tvHistory: TvEntry[] = [
   },
 ];
 
-const tvPlans: TvEntry[] = [];
+const tvPlans: TvEntry[] = [
+  {
+    date: "12月31日（土）",
+    time: "10:00～11:49",
+    category: "BS特集",
+    title: "見えた　何が　永遠が　～立花隆　最後の旅　完全版～（仮）",
+  },
+  {
+    date: "2023年1月3日（火）",
+    time: "20:00～21:49",
+    category: "BS特集（再放送）",
+    title: "見えた　何が　永遠が　～立花隆　最後の旅　完全版～（仮）",
+  },
+];
 
 const publicationHistory: PublicationEntry[] = [
   {
@@ -184,7 +195,6 @@ export const NewsBox: FC = () => {
           </Tag>
         )}
       </Heading>
-      <DontDiscardContent mb={5} />
       {tvPlans.length > 0 && (
         <>
           <Paragraph>
@@ -226,6 +236,7 @@ export const NewsBox: FC = () => {
           </Table>
         </>
       )}
+      <DontDiscardContent mb={5} />
       {/* <Element mb={4} className={styles["nhk-memorial"]}>
         <a href="/nhk-memorial.pdf">
           <Image src="/nhk-memorial.jpg" fullwidth />
