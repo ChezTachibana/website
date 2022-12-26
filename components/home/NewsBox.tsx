@@ -108,9 +108,10 @@ const tvHistory: TvEntry[] = [
   },
   {
     date: "2022年4月30日（土）",
-    time: "22:00～（予定）",
-    category: "NHK スペシャル 立花 隆 最期の旅",
-    title: "～知の巨人は何を遺したのか～（仮）",
+    time: "22:00～",
+    category: "NHK スペシャル",
+    title: "見えた 何が 永遠が　～立花隆　最後の旅～",
+    link: "https://www.nhk.jp/p/special/ts/2NY2QQLPM3/blog/bl/pneAjJR3gn/bp/pYEOPj55xW/",
   },
 ];
 
@@ -119,13 +120,13 @@ const tvPlans: TvEntry[] = [
     date: "12月31日（土）",
     time: "10:00～11:49",
     category: "BS特集",
-    title: "見えた　何が　永遠が　～立花隆　最後の旅　完全版～（仮）",
+    title: "見えた　何が　永遠が　～立花隆　最後の旅　完全版～",
   },
   {
     date: "2023年1月3日（火）",
     time: "20:00～21:49",
     category: "BS特集（再放送）",
-    title: "見えた　何が　永遠が　～立花隆　最後の旅　完全版～（仮）",
+    title: "見えた　何が　永遠が　～立花隆　最後の旅　完全版～",
   },
 ];
 
