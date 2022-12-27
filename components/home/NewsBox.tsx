@@ -121,12 +121,14 @@ const tvPlans: TvEntry[] = [
     time: "10:00～11:49",
     category: "BS特集",
     title: "見えた　何が　永遠が　～立花隆　最後の旅　完全版～",
+    link: "https://www.nhk.jp/p/ts/K291JX1G6Z/",
   },
   {
     date: "2023年1月3日（火）",
     time: "20:00～21:49",
     category: "BS特集（再放送）",
     title: "見えた　何が　永遠が　～立花隆　最後の旅　完全版～",
+    link: "https://www.nhk.jp/p/ts/K291JX1G6Z/",
   },
 ];
 
