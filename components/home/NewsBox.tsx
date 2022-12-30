@@ -268,7 +268,7 @@ export const NewsBox: FC = () => {
                   （産経新聞）
                 </li>
                 <li>
-                  <a href="https://www.tokyo-np.co.jp/article/171064">
+                  <a href="https://web.archive.org/web/20220411104813/https://www.tokyo-np.co.jp/article/171064">
                     立花隆さん資料１００箱、茨城へ　田中元首相関連ノートなど寄託
                   </a>
                   （東京新聞）
@@ -343,11 +343,11 @@ export const NewsBox: FC = () => {
       </Table>
       <Paragraph>
         また、以下の日程で、関連番組が放映されました。
-        <a href="https://www3.nhk.or.jp/news/html/20210623/k10013098951000.html">
+        <a href="https://web.archive.org/web/20211029021427/https://www3.nhk.or.jp/news/html/20210623/k10013098951000.html">
           NHK NEWS WEBのおくやみの記事
         </a>
         や、
-        <a href="https://www6.nhk.or.jp/nhkpr/post/original.html?i=29880">
+        <a href="https://web.archive.org/web/20211031023806/https://www6.nhk.or.jp/nhkpr/post/original.html?i=29880">
           関連番組をまとめたNHKオンラインの特設ページ
         </a>
         もご覧ください。
