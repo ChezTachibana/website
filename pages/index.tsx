@@ -19,7 +19,7 @@ interface IProps {
 }
 
 const Home: NextPage<IProps> = ({ images }) => (
-  <LastUpdateContext.Provider value={"2022/12/25 更新"}>
+  <LastUpdateContext.Provider value={"2022/12/30 更新"}>
     <ImagesContext.Provider value={images}>
       <Layout>
         <Container>
@@ -34,7 +34,7 @@ const Home: NextPage<IProps> = ({ images }) => (
             <Heading size={5} display="flex" alignItems="center">
               <Element pr={2}>原稿や資料の廃棄について</Element>
               <Tag color="primary" rounded>
-                2022/11/17 更新
+                2022/12/30 更新
               </Tag>
             </Heading>
             <DontDiscardContent />
