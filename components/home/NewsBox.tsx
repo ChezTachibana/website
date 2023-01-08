@@ -113,11 +113,8 @@ const tvHistory: TvEntry[] = [
     title: "見えた 何が 永遠が　～立花隆　最後の旅～",
     link: "https://www.nhk.jp/p/special/ts/2NY2QQLPM3/blog/bl/pneAjJR3gn/bp/pYEOPj55xW/",
   },
-];
-
-const tvPlans: TvEntry[] = [
   {
-    date: "12月31日（土）",
+    date: "2022年12月31日（土）",
     time: "10:00～11:49",
     category: "BS特集",
     title: "見えた　何が　永遠が　～立花隆　最後の旅　完全版～",
@@ -126,6 +123,16 @@ const tvPlans: TvEntry[] = [
   {
     date: "2023年1月3日（火）",
     time: "20:00～21:49",
+    category: "BS特集（再放送）",
+    title: "見えた　何が　永遠が　～立花隆　最後の旅　完全版～",
+    link: "https://www.nhk.jp/p/ts/K291JX1G6Z/",
+  },
+];
+
+const tvPlans: TvEntry[] = [
+  {
+    date: "2023年1月12日（木）",
+    time: "9:00～10:49",
     category: "BS特集（再放送）",
     title: "見えた　何が　永遠が　～立花隆　最後の旅　完全版～",
     link: "https://www.nhk.jp/p/ts/K291JX1G6Z/",
